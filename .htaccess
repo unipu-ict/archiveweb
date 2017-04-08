@@ -1,0 +1,15 @@
+RewriteEngine on
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond $1 !^(index\.php|css|js|images|favicon|.ico|robots\.txt)
+RewriteCond %{REQUEST_URI} !^/[0-9]+\..+\.cpaneldcv$
+RewriteCond %{REQUEST_URI} !^/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+RewriteRule ^(.*)$ index.php?$1 [L]
+<Files 403.shtml>
+order allow,deny
+allow from all
+</Files>
+
+deny from 188.130.251.15
+deny from 53.39.224.49
+deny from 198.50.131.157
